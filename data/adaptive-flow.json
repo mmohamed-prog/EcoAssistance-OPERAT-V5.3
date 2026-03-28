@@ -1,0 +1,224 @@
+{
+  "entry_map": {
+    "compte": [
+      "focus",
+      "declstate",
+      "docs",
+      "complexity",
+      "priority_need"
+    ],
+    "declaration": [
+      "focus",
+      "declstate",
+      "docs",
+      "complexity",
+      "priority_need"
+    ],
+    "objectifs": [
+      "focus",
+      "declstate",
+      "objvisible",
+      "docs",
+      "complexity",
+      "priority_need"
+    ],
+    "attestation": [
+      "focus",
+      "declstate",
+      "attestation",
+      "docs",
+      "priority_need"
+    ],
+    "blocage": [
+      "focus",
+      "declstate",
+      "objvisible",
+      "attestation",
+      "docs",
+      "complexity",
+      "priority_need"
+    ]
+  },
+  "questions": {
+    "need": {
+      "label": "Quel est votre problème principal aujourd’hui ?",
+      "options": [
+        {
+          "label": "Je n’arrive pas à avancer dans OPERAT",
+          "value": "compte"
+        },
+        {
+          "label": "Ma déclaration est fragile ou incomplète",
+          "value": "declaration"
+        },
+        {
+          "label": "Je ne vois pas mes objectifs 2030",
+          "value": "objectifs"
+        },
+        {
+          "label": "Je ne trouve pas mon attestation",
+          "value": "attestation"
+        },
+        {
+          "label": "Je suis bloqué sans savoir où",
+          "value": "blocage"
+        }
+      ]
+    },
+    "focus": {
+      "label": "Sur quoi porte principalement votre doute ?",
+      "options": [
+        {
+          "label": "Le périmètre ou la surface assujettie",
+          "value": "perimetre"
+        },
+        {
+          "label": "Les données de consommation",
+          "value": "conso"
+        },
+        {
+          "label": "L’année de référence ou les usages",
+          "value": "reference"
+        },
+        {
+          "label": "La validation de la déclaration",
+          "value": "validation"
+        },
+        {
+          "label": "Je ne sais pas encore",
+          "value": "unknown"
+        }
+      ]
+    },
+    "declstate": {
+      "label": "Votre déclaration est-elle aujourd’hui réellement finalisée dans OPERAT ?",
+      "options": [
+        {
+          "label": "Non, je n’ai pas terminé",
+          "value": "none"
+        },
+        {
+          "label": "J’ai commencé mais c’est partiel",
+          "value": "partial"
+        },
+        {
+          "label": "C’est saisi mais je ne suis pas sûr que ce soit validé",
+          "value": "done_not_validated"
+        },
+        {
+          "label": "Oui, c’est validé",
+          "value": "validated"
+        }
+      ]
+    },
+    "objvisible": {
+      "label": "Vos objectifs 2030 sont-ils visibles dans l’interface ?",
+      "options": [
+        {
+          "label": "Oui",
+          "value": "oui"
+        },
+        {
+          "label": "Non",
+          "value": "non"
+        },
+        {
+          "label": "Je ne sais pas",
+          "value": "inconnu"
+        },
+        {
+          "label": "Je n’ai pas encore vérifié",
+          "value": "not_checked"
+        }
+      ]
+    },
+    "attestation": {
+      "label": "Votre attestation est-elle disponible ?",
+      "options": [
+        {
+          "label": "Je ne la vois pas",
+          "value": "none"
+        },
+        {
+          "label": "Je la vois mais je ne l’ai pas téléchargée",
+          "value": "visible_not_downloaded"
+        },
+        {
+          "label": "Oui, elle est récupérée",
+          "value": "downloaded"
+        },
+        {
+          "label": "Je ne sais pas",
+          "value": "unknown"
+        }
+      ]
+    },
+    "docs": {
+      "label": "Votre base documentaire est-elle suffisamment robuste ?",
+      "options": [
+        {
+          "label": "Oui, nous avons surfaces, consommations et référence",
+          "value": "robust"
+        },
+        {
+          "label": "Partiellement, il manque encore des éléments",
+          "value": "partial"
+        },
+        {
+          "label": "Non, la base reste fragile",
+          "value": "weak"
+        },
+        {
+          "label": "Je ne sais pas",
+          "value": "unknown"
+        }
+      ]
+    },
+    "complexity": {
+      "label": "Le site est-il simple ou complexe à déclarer ?",
+      "options": [
+        {
+          "label": "Site simple, mono-occupation",
+          "value": "mono"
+        },
+        {
+          "label": "Site multi-occupants",
+          "value": "multi"
+        },
+        {
+          "label": "Site mixte ou périmètre complexe",
+          "value": "mixte"
+        },
+        {
+          "label": "Je ne sais pas",
+          "value": "unknown"
+        }
+      ]
+    },
+    "priority_need": {
+      "label": "Quelle est votre priorité immédiate ?",
+      "options": [
+        {
+          "label": "Comprendre le blocage",
+          "value": "understand"
+        },
+        {
+          "label": "Sécuriser la déclaration",
+          "value": "secure"
+        },
+        {
+          "label": "Voir mes objectifs",
+          "value": "targets"
+        },
+        {
+          "label": "Récupérer l’attestation",
+          "value": "proof"
+        },
+        {
+          "label": "Préparer la suite après OPERAT",
+          "value": "next"
+        }
+      ]
+    }
+  }
+}

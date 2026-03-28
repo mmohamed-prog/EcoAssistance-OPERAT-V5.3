@@ -1,0 +1,277 @@
+{
+  "M1": {
+    "id": "M1",
+    "title": "Déclaration à fiabiliser",
+    "headline": "Votre déclaration semble encore insuffisamment fiabilisée.",
+    "cause": "Le dossier paraît encore partiel, non stabilisé ou insuffisamment validé pour une lecture fiable.",
+    "screen": "Écran déclaration",
+    "action": "Relire les données critiques, finaliser la saisie puis confirmer la validation avant d’interpréter les résultats.",
+    "service": "relecture_operat",
+    "tone": "high_priority",
+    "tags": [
+      "Déclaration",
+      "Validation",
+      "Contrôle qualité"
+    ],
+    "internal_cases": [
+      "decl_incomplete_validation",
+      "decl_partial_data_gap",
+      "decl_not_validated_status_unclear",
+      "decl_needs_quality_review_before_submit",
+      "decl_conflict_between_need_and_declstate"
+    ]
+  },
+  "M2": {
+    "id": "M2",
+    "title": "Données insuffisantes",
+    "headline": "Le blocage semble venir d’un socle de données encore trop faible.",
+    "cause": "Les consommations, surfaces, compteurs ou pièces justificatives paraissent encore insuffisamment consolidés.",
+    "screen": "Données d’entrée / déclaration",
+    "action": "Consolider le socle documentaire avant d’aller plus loin dans la déclaration ou l’interprétation des résultats.",
+    "service": "audit_donnees",
+    "tone": "high_priority",
+    "tags": [
+      "Données",
+      "Consommations",
+      "Fiabilisation"
+    ],
+    "internal_cases": [
+      "donnees_insuffisantes",
+      "conso_gap_major",
+      "docs_partial_but_recoverable",
+      "data_quality_conflict"
+    ]
+  },
+  "M3": {
+    "id": "M3",
+    "title": "Référence ou usages à consolider",
+    "headline": "La référence ou les usages semblent devoir être clarifiés.",
+    "cause": "La base de référence ou les usages semblent insuffisamment sécurisés. OPERAT détermine automatiquement l'année de référence la plus favorable parmi les données disponibles (2010-2019, 2020, 2021, 2022). Sans année de pleine exploitation déclarée, le calcul est impossible.",
+    "screen": "Écran déclaration et référence",
+    "action": "Relire l'année de référence et vérifier qu'une année de pleine exploitation est bien déclarée et validée. La période 2010-2019 peut être déclarée jusqu'au 30/09/2027. Consolider les usages et les indicateurs d'intensité d'usage (USE) qui impactent le calcul du Cabs 2030 depuis l'arrêté du 1er août 2025.",
+    "service": "cadrage_tertiaire",
+    "tone": "high_priority",
+    "tags": [
+      "Référence",
+      "Usages",
+      "Trajectoire",
+      "Intensité d'usage"
+    ],
+    "internal_cases": [
+      "reference_usage_fragiles",
+      "reference_choice_unclear",
+      "usage_incoherent_with_targets",
+      "reference_ok_but_docs_partial",
+      "usage_change_needs_review",
+      "reference_heritage_efa_liee",
+      "objectifs_absents_no_full_year"
+    ]
+  },
+  "M4": {
+    "id": "M4",
+    "title": "Objectifs 2030 non visibles",
+    "headline": "Vos objectifs 2030 ne sont pas encore visibles dans OPERAT.",
+    "cause": "Les objectifs ne remontent pas — soit la déclaration n'est pas validée, soit aucune année de pleine exploitation n'est déclarée (condition nécessaire au calcul). Rappel : les objectifs sont calculés 10 minutes après validation.",
+    "screen": "Écran objectifs",
+    "action": "Confirmer la validation du déclaratif et vérifier qu'une année de pleine exploitation est déclarée. Si la validation est récente, patienter 10 minutes puis recharger l'écran objectifs ou la recherche EFA avancée.",
+    "service": "cadrage_tertiaire",
+    "tone": "high_priority",
+    "tags": [
+      "Objectifs",
+      "Restitution",
+      "Décret Tertiaire",
+      "Délai technique"
+    ],
+    "internal_cases": [
+      "objectifs_absents_non_valide",
+      "objectifs_absents_reference_fragile",
+      "objectifs_absents_docs_weak",
+      "objectifs_absents_perimetre_complex",
+      "objectifs_non_checked_but_decl_ok",
+      "objectifs_absents_no_full_year",
+      "objectifs_absents_delai_10min"
+    ]
+  },
+  "M5": {
+    "id": "M5",
+    "title": "Objectifs visibles mais à confirmer",
+    "headline": "Les objectifs sont visibles, mais leur lecture reste à sécuriser.",
+    "cause": "Les objectifs remontent, mais la robustesse de la base ou la lecture métier reste encore à confirmer.",
+    "screen": "Écran objectifs",
+    "action": "Vérifier la robustesse du dossier avant de tirer des conclusions sur la trajectoire.",
+    "service": "cadrage_tertiaire",
+    "tone": "medium_priority",
+    "tags": [
+      "Objectifs",
+      "Lecture",
+      "Trajectoire"
+    ],
+    "internal_cases": [
+      "objectifs_visibles_but_non_fiables",
+      "objectifs_visibles_ready_for_analysis"
+    ]
+  },
+  "M6": {
+    "id": "M6",
+    "title": "Attestation indisponible",
+    "headline": "Votre attestation n'est pas accessible dans OPERAT.",
+    "cause": "L'attestation est uniquement disponible pour les déclarations validées. Si la validation vient d'être faite, l'attestation provisoire est générée automatiquement 10 minutes après. Jusqu'au 1er juillet 2026, toutes les attestations sont provisoires — c'est normal.",
+    "screen": "Écran attestation",
+    "action": "Confirmer la validation dans CONSOMMATIONS > Recherche de déclaration. Si la déclaration est validée, l'attestation est téléchargeable depuis l'écran de synthèse de l'année concernée.",
+    "service": "relecture_documentaire",
+    "tone": "high_priority",
+    "tags": [
+      "Attestation",
+      "Documents",
+      "Restitution",
+      "Délai technique"
+    ],
+    "internal_cases": [
+      "attestation_absente_non_valide",
+      "attestation_unknown_status",
+      "attestation_absente_docs_fragiles",
+      "attestation_absente_perimetre_issue"
+    ]
+  },
+  "M7": {
+    "id": "M7",
+    "title": "Attestation à récupérer / archiver",
+    "headline": "L’attestation semble disponible, mais le traitement documentaire n’est pas terminé.",
+    "cause": "Le document semble disponible mais n'a pas encore été récupéré ou archivé. Jusqu'au 1er juillet 2026, les attestations affichées sont des attestations provisoires — c'est prévu et attendu par l'ADEME. L'attestation définitive sera générée le 1er juillet 2026 pour les années 2020 à 2024.",
+    "screen": "Écran attestation",
+    "action": "Télécharger l'attestation provisoire depuis CONSOMMATIONS > synthèse de l'année. Elle est valable dès maintenant pour les transactions immobilières et les audits. Archiver le document et planifier la récupération de l'attestation définitive à partir du 1er juillet 2026.",
+    "service": "relecture_documentaire",
+    "tone": "low_priority",
+    "tags": [
+      "Attestation",
+      "Téléchargement",
+      "Archivage",
+      "Provisoire"
+    ],
+    "internal_cases": [
+      "attestation_visible_non_telechargee",
+      "attestation_downloaded_ready_archive",
+      "attestation_type_confusion"
+    ]
+  },
+  "M8": {
+    "id": "M8",
+    "title": "Périmètre / EFA à revoir",
+    "headline": "Le blocage semble venir du périmètre, de l’EFA ou des rattachements.",
+    "cause": "Le contexte multi-occupation, mixte ou la logique de rattachement paraît perturber la cohérence du dossier.",
+    "screen": "Écran EFA",
+    "action": "Revoir le périmètre, l’occupation et les rattachements avant toute autre interprétation.",
+    "service": "revue_perimetre",
+    "tone": "high_priority",
+    "tags": [
+      "EFA",
+      "Périmètre",
+      "Rattachements"
+    ],
+    "internal_cases": [
+      "efa_incoherente_multi",
+      "efa_incoherente_mixte",
+      "efa_incoherente_unknown_complexity",
+      "perimetre_usage_split_issue",
+      "rattachement_probable_issue",
+      "mixed_validation_and_perimeter"
+    ]
+  },
+  "M9": {
+    "id": "M9",
+    "title": "Assujettissement à confirmer",
+    "headline": "Le sujet semble d’abord porter sur l’assujettissement ou le seuil concerné.",
+    "cause": "La question principale paraît être la qualification du périmètre tertiaire réellement soumis au dispositif.",
+    "screen": "Structure du compte et périmètre",
+    "action": "Confirmer le seuil et le périmètre avant d’ouvrir une lecture réglementaire plus détaillée.",
+    "service": "cadrage_assujettissement",
+    "tone": "medium_priority",
+    "tags": [
+      "Seuil",
+      "Assujettissement",
+      "Périmètre"
+    ],
+    "internal_cases": [
+      "assujettissement_a_confirmer",
+      "mono_site_but_perimetre_doubt",
+      "perimetre_surface_doubt"
+    ]
+  },
+  "M10": {
+    "id": "M10",
+    "title": "Parcours OPERAT / structure du compte à clarifier",
+    "headline": "Le blocage semble venir du parcours OPERAT ou de la structure du compte.",
+    "cause": "Le sujet paraît lié à une confusion entre compte, site, EFA, gouvernance ou cheminement dans l’outil.",
+    "screen": "Structure du compte",
+    "action": "Remettre à plat le parcours OPERAT et la structure du dossier avant de poursuivre.",
+    "service": "relecture_operat",
+    "tone": "medium_priority",
+    "tags": [
+      "Compte",
+      "Parcours",
+      "Structure"
+    ],
+    "internal_cases": [
+      "compte_vs_site_confusion"
+    ]
+  },
+  "M11": {
+    "id": "M11",
+    "title": "Cas mixte à arbitrer",
+    "headline": "Le blocage semble combiner plusieurs causes, avec un arbitrage à faire.",
+    "cause": "Le dossier paraît mélanger plusieurs fragilités : données, référence, validation, lecture incomplète ou passage prématuré à l’action.",
+    "screen": "Écran à confirmer selon le cas dominant",
+    "action": "Traiter les causes dans le bon ordre, en commençant par la plus structurante.",
+    "service": "relecture_operat",
+    "tone": "high_priority",
+    "tags": [
+      "Arbitrage",
+      "Cas mixte",
+      "Diagnostic"
+    ],
+    "internal_cases": [
+      "mixed_reference_and_data",
+      "secure_need_with_weak_docs",
+      "next_need_but_decl_not_ready"
+    ]
+  },
+  "M12": {
+    "id": "M12",
+    "title": "Passage en logique de pilotage",
+    "headline": "Le dossier semble suffisamment mûr pour passer d’un blocage à une logique d’action.",
+    "cause": "Le dossier paraît globalement exploitable et peut maintenant servir à structurer une feuille de route.",
+    "screen": "Écran objectifs puis pilotage interne",
+    "action": "Transformer la conformité et la lecture OPERAT en plan d’actions priorisé.",
+    "service": "plan_actions",
+    "tone": "opportunity",
+    "tags": [
+      "Pilotage",
+      "Plan d’actions",
+      "Performance"
+    ],
+    "internal_cases": [
+      "pilotage_ready",
+      "validated_but_needs_action_plan",
+      "reference_ready_for_target_reading"
+    ]
+  },
+  "M13": {
+    "id": "M13",
+    "title": "Héritage de référence — EFA liée",
+    "headline": "Votre objectif est calculé à partir de la référence d'un occupant précédent.",
+    "cause": "En cas de changement d'occupant, le Crelat 2030 hérite de la consommation de référence du primo assujetti via les EFA liées. Cette logique peut générer un objectif difficile à interpréter sans connaître l'historique du site.",
+    "screen": "Écran déclaration et référence — EFA liée",
+    "action": "Identifier les EFA liées sur OPERAT et vérifier leurs années de référence. Contrôler que les rattachements sont corrects et que les EFA liées ont une première année de pleine exploitation antérieure à la vôtre.",
+    "service": "cadrage_tertiaire",
+    "tone": "high_priority",
+    "tags": [
+      "EFA",
+      "Référence héritée",
+      "Changement d'occupant",
+      "Crelat"
+    ],
+    "internal_cases": [
+      "reference_heritage_efa_liee"
+    ]
+  }
+}

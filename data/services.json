@@ -1,0 +1,79 @@
+{
+  "relecture_operat": {
+    "title": "Relecture OPERAT ciblée",
+    "desc": "Relire le dossier, contrôler la cohérence déclarative et sécuriser la validation.",
+    "cta": "Demander une relecture OPERAT",
+    "subject": "Demande de relecture OPERAT — EcoAssistance OPERAT",
+    "tags": [
+      "Déclaration",
+      "Validation",
+      "Contrôle qualité"
+    ]
+  },
+  "cadrage_tertiaire": {
+    "title": "Cadrage Décret Tertiaire",
+    "desc": "Reprendre le périmètre, la référence et la logique de lecture des objectifs.",
+    "cta": "Planifier un cadrage Décret Tertiaire",
+    "subject": "Planifier un cadrage Décret Tertiaire — EcoAssistance OPERAT",
+    "tags": [
+      "Trajectoire",
+      "Objectifs",
+      "Référence"
+    ]
+  },
+  "audit_donnees": {
+    "title": "Audit des données d’entrée",
+    "desc": "Fiabiliser surfaces, consommations, références et pièces justificatives.",
+    "cta": "Demander un audit des données",
+    "subject": "Demande d’audit des données OPERAT — EcoAssistance OPERAT",
+    "tags": [
+      "Données",
+      "Consommations",
+      "Fiabilisation"
+    ]
+  },
+  "revue_perimetre": {
+    "title": "Revue du périmètre assujetti",
+    "desc": "Contrôler EFA, occupation, rattachements et logique déclarative.",
+    "cta": "Faire revoir mon périmètre",
+    "subject": "Demande de revue du périmètre assujetti — EcoAssistance OPERAT",
+    "tags": [
+      "EFA",
+      "Occupation",
+      "Périmètre"
+    ]
+  },
+  "relecture_documentaire": {
+    "title": "Relecture documentaire OPERAT",
+    "desc": "Vérifier la disponibilité des documents et sécuriser leur récupération.",
+    "cta": "Demander une relecture documentaire",
+    "subject": "Demande de relecture documentaire OPERAT — EcoAssistance OPERAT",
+    "tags": [
+      "Attestation",
+      "Documents",
+      "Archivage"
+    ]
+  },
+  "cadrage_assujettissement": {
+    "title": "Cadrage d’assujettissement",
+    "desc": "Vérifier le seuil, le périmètre et la pertinence d’entrée dans le dispositif.",
+    "cta": "Vérifier mon assujettissement",
+    "subject": "Demande de cadrage d’assujettissement — EcoAssistance OPERAT",
+    "tags": [
+      "Seuil",
+      "Périmètre",
+      "Assujettissement"
+    ]
+  },
+  "plan_actions": {
+    "title": "Plan d’actions priorisé",
+    "desc": "Transformer la lecture OPERAT en trajectoire opérationnelle et énergétique.",
+    "cta": "Construire mon plan d’actions",
+    "subject": "Demande de plan d’actions priorisé — EcoAssistance OPERAT",
+    "tags": [
+      "Pilotage",
+      "Plan d’actions",
+      "Performance"
+    ]
+  }
+}

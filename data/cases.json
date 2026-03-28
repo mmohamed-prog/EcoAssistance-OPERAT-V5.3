@@ -1,0 +1,1780 @@
+[
+  {
+    "id": "decl_incomplete_validation",
+    "label_public": "Déclaration encore insuffisamment fiabilisée",
+    "label_expert": "Déclaration incomplète ou non validée",
+    "family": "declaration",
+    "priority": "high",
+    "conditions": {
+      "need": [
+        "declaration",
+        "blocage",
+        "compte"
+      ],
+      "declstate": [
+        "none",
+        "partial",
+        "done_not_validated"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "declstate": 6,
+      "docs": 2,
+      "focus": 2
+    },
+    "exclusions": [
+      "pilotage_ready"
+    ],
+    "screen": "Écran déclaration",
+    "cause": "La déclaration semble encore partielle, non stabilisée ou non validée.",
+    "action": "Relire les données critiques, finaliser la saisie puis confirmer la validation.",
+    "service": "relecture_operat"
+  },
+  {
+    "id": "decl_partial_data_gap",
+    "label_public": "Déclaration fragilisée par les données",
+    "label_expert": "Déclaration partielle avec manque de données d'entrée",
+    "family": "declaration",
+    "priority": "high",
+    "conditions": {
+      "need": [
+        "declaration",
+        "blocage"
+      ],
+      "declstate": [
+        "partial"
+      ],
+      "docs": [
+        "partial",
+        "weak",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "declstate": 5,
+      "docs": 5,
+      "focus": 2
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration",
+    "cause": "Le déclaratif semble bloqué par un socle de données encore trop incomplet.",
+    "action": "Compléter les données structurantes avant de reprendre la déclaration.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "decl_not_validated_status_unclear",
+    "label_public": "Statut de validation à clarifier",
+    "label_expert": "Déclaration saisie mais validation non certaine",
+    "family": "declaration",
+    "priority": "high",
+    "conditions": {
+      "declstate": [
+        "done_not_validated"
+      ],
+      "need": [
+        "declaration",
+        "objectifs",
+        "attestation",
+        "blocage"
+      ]
+    },
+    "weights": {
+      "declstate": 7,
+      "need": 3,
+      "objvisible": 1,
+      "attestation": 1
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration",
+    "cause": "Le dossier semble saisi mais son statut réel de validation reste incertain.",
+    "action": "Confirmer le statut exact de validation avant d’interpréter le reste.",
+    "service": "relecture_operat"
+  },
+  {
+    "id": "decl_validated_but_fragile",
+    "label_public": "Déclaration validée mais encore fragile",
+    "label_expert": "Déclaration validée avec base documentaire insuffisamment robuste",
+    "family": "declaration",
+    "priority": "medium",
+    "conditions": {
+      "declstate": [
+        "validated"
+      ],
+      "docs": [
+        "partial",
+        "weak",
+        "unknown"
+      ],
+      "need": [
+        "declaration",
+        "blocage",
+        "objectifs"
+      ]
+    },
+    "weights": {
+      "declstate": 3,
+      "docs": 5,
+      "need": 3
+    },
+    "exclusions": [
+      "pilotage_ready"
+    ],
+    "screen": "Écran déclaration",
+    "cause": "La validation existe, mais la solidité du socle documentaire reste limitée.",
+    "action": "Faire une revue qualité du dossier avant d’aller plus loin dans l’analyse.",
+    "service": "relecture_operat"
+  },
+  {
+    "id": "decl_needs_quality_review_before_submit",
+    "label_public": "Déclaration à relire avant finalisation",
+    "label_expert": "Déclaration proche de la fin mais nécessitant une revue qualité",
+    "family": "declaration",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "declaration"
+      ],
+      "declstate": [
+        "partial",
+        "done_not_validated"
+      ],
+      "docs": [
+        "robust",
+        "partial"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "declstate": 4,
+      "docs": 2,
+      "priority_need": 2
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration",
+    "cause": "Le dossier semble avancé mais mérite une relecture avant validation finale.",
+    "action": "Procéder à un contrôle qualité ciblé avant dépôt ou validation.",
+    "service": "relecture_operat"
+  },
+  {
+    "id": "decl_conflict_between_need_and_declstate",
+    "label_public": "Blocage déclaratif encore mal localisé",
+    "label_expert": "Incohérence entre besoin exprimé et état réel du déclaratif",
+    "family": "declaration",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "blocage",
+        "compte"
+      ],
+      "declstate": [
+        "partial",
+        "done_not_validated"
+      ],
+      "focus": [
+        "unknown",
+        "validation"
+      ]
+    },
+    "weights": {
+      "need": 3,
+      "declstate": 5,
+      "focus": 3
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration",
+    "cause": "Le blocage déclaré reste diffus mais le déclaratif semble être le nœud principal.",
+    "action": "Recentrer le diagnostic sur la déclaration avant d’explorer des causes secondaires.",
+    "service": "relecture_operat"
+  },
+  {
+    "id": "decl_ready_for_final_check",
+    "label_public": "Déclaration prête pour un contrôle final",
+    "label_expert": "Déclaration avancée nécessitant un dernier check",
+    "family": "declaration",
+    "priority": "low",
+    "conditions": {
+      "need": [
+        "declaration"
+      ],
+      "declstate": [
+        "validated",
+        "done_not_validated"
+      ],
+      "docs": [
+        "robust"
+      ],
+      "priority_need": [
+        "secure"
+      ]
+    },
+    "weights": {
+      "need": 3,
+      "declstate": 3,
+      "docs": 4,
+      "priority_need": 4
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration",
+    "cause": "Le dossier semble plutôt mûr et relever d’une ultime vérification.",
+    "action": "Faire une relecture finale avant clôture du sujet.",
+    "service": "relecture_operat"
+  },
+  {
+    "id": "decl_validation_blocking_targets",
+    "label_public": "Validation bloque encore la suite",
+    "label_expert": "Validation incomplète affectant objectifs et attestation",
+    "family": "declaration",
+    "priority": "high",
+    "conditions": {
+      "declstate": [
+        "none",
+        "partial",
+        "done_not_validated"
+      ],
+      "need": [
+        "objectifs",
+        "attestation"
+      ]
+    },
+    "weights": {
+      "declstate": 6,
+      "need": 4
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration",
+    "cause": "La suite du dossier dépend encore d’une validation déclarative suffisamment propre.",
+    "action": "Sécuriser la validation avant de traiter les écrans aval.",
+    "service": "relecture_operat"
+  },
+  {
+    "id": "decl_needs_reconstruction",
+    "label_public": "Déclaration à reconstruire",
+    "label_expert": "Déclaratif trop faible pour correction ponctuelle",
+    "family": "declaration",
+    "priority": "high",
+    "conditions": {
+      "declstate": [
+        "none"
+      ],
+      "docs": [
+        "weak",
+        "unknown"
+      ],
+      "need": [
+        "declaration",
+        "blocage"
+      ]
+    },
+    "weights": {
+      "declstate": 7,
+      "docs": 5,
+      "need": 3
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration",
+    "cause": "Le dossier paraît trop peu avancé pour une simple relecture corrective.",
+    "action": "Reconstituer le socle documentaire puis reprendre la déclaration.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "decl_validated_wrong_focus",
+    "label_public": "Déclaration validée mais le vrai sujet est ailleurs",
+    "label_expert": "Déclaratif stabilisé avec blocage probablement périphérique",
+    "family": "declaration",
+    "priority": "low",
+    "conditions": {
+      "declstate": [
+        "validated"
+      ],
+      "need": [
+        "compte",
+        "blocage"
+      ],
+      "docs": [
+        "robust",
+        "partial"
+      ]
+    },
+    "weights": {
+      "declstate": 4,
+      "need": 2,
+      "docs": 2
+    },
+    "exclusions": [],
+    "screen": "Écran à requalifier selon le besoin",
+    "cause": "Le dossier semble validé ; le blocage principal est probablement périmétrique, documentaire ou de lecture.",
+    "action": "Requalifier le sujet dominant avant d’ouvrir une correction déclarative.",
+    "service": "cadrage_tertiaire"
+  },
+  {
+    "id": "objectifs_absents_non_valide",
+    "label_public": "Objectifs 2030 non visibles",
+    "label_expert": "Objectifs absents car déclaration non validée",
+    "family": "objectifs",
+    "priority": "high",
+    "conditions": {
+      "need": [
+        "objectifs",
+        "blocage"
+      ],
+      "objvisible": [
+        "non",
+        "inconnu",
+        "not_checked"
+      ],
+      "declstate": [
+        "none",
+        "partial",
+        "done_not_validated"
+      ]
+    },
+    "weights": {
+      "need": 5,
+      "objvisible": 6,
+      "declstate": 5
+    },
+    "exclusions": [
+      "pilotage_ready"
+    ],
+    "screen": "Écran objectifs",
+    "cause": "Les objectifs ne remontent pas car la déclaration n'est pas encore suffisamment validée sur OPERAT. Rappel : les objectifs sont calculés et restitués 10 minutes après la validation d'une déclaration.",
+    "action": "Confirmer la validation du déclaratif. Vérifier qu'au moins une année de pleine exploitation est bien déclarée. Si la validation vient d'être faite, patienter 10 minutes avant de relire l'écran objectifs.",
+    "service": "cadrage_tertiaire"
+  },
+  {
+    "id": "objectifs_absents_reference_fragile",
+    "label_public": "Objectifs 2030 non visibles",
+    "label_expert": "Objectifs absents car référence ou usages fragiles",
+    "family": "objectifs",
+    "priority": "high",
+    "conditions": {
+      "need": [
+        "objectifs",
+        "blocage"
+      ],
+      "focus": [
+        "reference"
+      ],
+      "objvisible": [
+        "non",
+        "inconnu"
+      ],
+      "docs": [
+        "partial",
+        "weak",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "focus": 6,
+      "objvisible": 5,
+      "docs": 4
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration et référence",
+    "cause": "Les objectifs ne sont pas calculables : soit la déclaration est trop fragile, soit aucune année de pleine exploitation n'est encore déclarée sur OPERAT (condition nécessaire au calcul de l'année de référence).",
+    "action": "Vérifier qu'au moins une année de pleine exploitation est déclarée. Relire l'année de référence et la cohérence des données. Les assujettis disposent jusqu'au 30/09/2027 pour déclarer la période 2010-2019.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "objectifs_absents_docs_weak",
+    "label_public": "Objectifs difficiles à exploiter",
+    "label_expert": "Objectifs absents ou peu lisibles car socle documentaire trop faible",
+    "family": "objectifs",
+    "priority": "high",
+    "conditions": {
+      "need": [
+        "objectifs",
+        "blocage"
+      ],
+      "objvisible": [
+        "non",
+        "inconnu",
+        "not_checked"
+      ],
+      "docs": [
+        "weak",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "objvisible": 5,
+      "docs": 6
+    },
+    "exclusions": [],
+    "screen": "Écran objectifs",
+    "cause": "Le manque de données fiables empêche une lecture robuste des objectifs.",
+    "action": "Fiabiliser les données d’entrée avant de conclure sur la restitution des objectifs.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "objectifs_absents_perimetre_complex",
+    "label_public": "Objectifs non visibles sur périmètre complexe",
+    "label_expert": "Objectifs absents en contexte EFA ou occupation complexe",
+    "family": "objectifs",
+    "priority": "high",
+    "conditions": {
+      "need": [
+        "objectifs",
+        "blocage"
+      ],
+      "objvisible": [
+        "non",
+        "inconnu"
+      ],
+      "complexity": [
+        "multi",
+        "mixte",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "objvisible": 5,
+      "complexity": 5
+    },
+    "exclusions": [],
+    "screen": "Écran objectifs puis EFA",
+    "cause": "La restitution des objectifs semble perturbée par un périmètre ou une occupation complexe.",
+    "action": "Revoir le périmètre EFA avant d’interpréter l’absence d’objectifs.",
+    "service": "revue_perimetre"
+  },
+  {
+    "id": "objectifs_visibles_but_non_fiables",
+    "label_public": "Objectifs visibles mais à confirmer",
+    "label_expert": "Objectifs visibles avec base fragile ou doute méthodologique",
+    "family": "objectifs",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "objectifs"
+      ],
+      "objvisible": [
+        "oui"
+      ],
+      "docs": [
+        "partial",
+        "weak",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "objvisible": 2,
+      "docs": 5,
+      "focus": 2
+    },
+    "exclusions": [
+      "pilotage_ready"
+    ],
+    "screen": "Écran objectifs",
+    "cause": "Les objectifs sont visibles mais leur lecture reste fragile faute d’un socle suffisamment solide.",
+    "action": "Valider la qualité des données avant de tirer des conclusions sur la trajectoire.",
+    "service": "cadrage_tertiaire"
+  },
+  {
+    "id": "objectifs_visibles_ready_for_analysis",
+    "label_public": "Objectifs visibles et exploitables",
+    "label_expert": "Objectifs disponibles pour lecture stratégique",
+    "family": "objectifs",
+    "priority": "low",
+    "conditions": {
+      "need": [
+        "objectifs"
+      ],
+      "objvisible": [
+        "oui"
+      ],
+      "declstate": [
+        "validated"
+      ],
+      "docs": [
+        "robust"
+      ]
+    },
+    "weights": {
+      "need": 3,
+      "objvisible": 4,
+      "declstate": 4,
+      "docs": 4
+    },
+    "exclusions": [],
+    "screen": "Écran objectifs",
+    "cause": "Les objectifs semblent disponibles dans un cadre suffisamment fiable.",
+    "action": "Passer à une lecture stratégique et à la priorisation des actions.",
+    "service": "plan_actions"
+  },
+  {
+    "id": "objectifs_non_checked_but_decl_ok",
+    "label_public": "Objectifs à vérifier en priorité",
+    "label_expert": "Objectifs non encore contrôlés malgré déclaratif apparemment stabilisé",
+    "family": "objectifs",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "objectifs"
+      ],
+      "objvisible": [
+        "not_checked",
+        "inconnu"
+      ],
+      "declstate": [
+        "validated"
+      ],
+      "docs": [
+        "robust",
+        "partial"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "objvisible": 4,
+      "declstate": 3,
+      "docs": 2
+    },
+    "exclusions": [],
+    "screen": "Écran objectifs",
+    "cause": "Le dossier semble assez avancé pour contrôler maintenant la restitution des objectifs.",
+    "action": "Vérifier l’écran objectifs avant d’ouvrir une logique plus lourde de correction.",
+    "service": "cadrage_tertiaire"
+  },
+  {
+    "id": "objectifs_incoherent_with_usage",
+    "label_public": "Objectifs incohérents avec les usages",
+    "label_expert": "Écart probable entre usages déclarés et restitution",
+    "family": "objectifs",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "objectifs",
+        "blocage"
+      ],
+      "focus": [
+        "reference"
+      ],
+      "objvisible": [
+        "oui",
+        "non"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "focus": 5,
+      "objvisible": 2
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration et objectifs",
+    "cause": "La logique d'usage déclarée peut expliquer une lecture inattendue des objectifs. Depuis l'arrêté du 1er août 2025, les indicateurs d'intensité d'usage (USE) sont pris en compte dans le calcul du Cabs 2030 — leur renseignement peut modifier l'objectif affiché.",
+    "action": "Relire les usages et sous-catégories d'activité déclarés. Vérifier si les indicateurs d'intensité d'usage ont été renseignés dans la déclaration — leur impact sur le Cabs peut expliquer un écart avec les attentes.",
+    "service": "cadrage_tertiaire"
+  },
+  {
+    "id": "objectifs_need_recontextualization",
+    "label_public": "Objectifs à recontextualiser",
+    "label_expert": "Objectifs lisibles mais nécessitant un cadrage métier",
+    "family": "objectifs",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "objectifs"
+      ],
+      "priority_need": [
+        "understand",
+        "targets"
+      ],
+      "declstate": [
+        "validated"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "priority_need": 4,
+      "declstate": 3
+    },
+    "exclusions": [],
+    "screen": "Écran objectifs",
+    "cause": "Le sujet semble relever davantage d’une lecture métier que d’un bug OPERAT.",
+    "action": "Recontextualiser les objectifs avant d’ouvrir une correction technique.",
+    "service": "cadrage_tertiaire"
+  },
+  {
+    "id": "objectifs_ready_but_no_plan",
+    "label_public": "Objectifs présents sans suite structurée",
+    "label_expert": "Objectifs disponibles mais non traduits en plan d’actions",
+    "family": "objectifs",
+    "priority": "low",
+    "conditions": {
+      "objvisible": [
+        "oui"
+      ],
+      "declstate": [
+        "validated"
+      ],
+      "priority_need": [
+        "next"
+      ],
+      "docs": [
+        "robust",
+        "partial"
+      ]
+    },
+    "weights": {
+      "objvisible": 4,
+      "declstate": 4,
+      "priority_need": 5,
+      "docs": 2
+    },
+    "exclusions": [],
+    "screen": "Écran objectifs",
+    "cause": "Les objectifs sont là, mais la suite opérationnelle reste à construire.",
+    "action": "Transformer la lecture des objectifs en feuille de route.",
+    "service": "plan_actions"
+  },
+  {
+    "id": "attestation_absente_non_valide",
+    "label_public": "Attestation non disponible",
+    "label_expert": "Attestation absente car déclaration non validée",
+    "family": "attestation",
+    "priority": "high",
+    "conditions": {
+      "need": [
+        "attestation",
+        "blocage"
+      ],
+      "attestation": [
+        "none",
+        "unknown"
+      ],
+      "declstate": [
+        "none",
+        "partial",
+        "done_not_validated"
+      ]
+    },
+    "weights": {
+      "need": 5,
+      "attestation": 6,
+      "declstate": 4
+    },
+    "exclusions": [],
+    "screen": "Écran attestation",
+    "cause": "L'attestation n'est disponible que pour les déclarations validées. Si la déclaration vient d'être validée, l'attestation provisoire est générée automatiquement 10 minutes après la validation.",
+    "action": "Confirmer la validation du dossier puis patienter 10 minutes. Vérifier ensuite l'écran CONSOMMATIONS > synthèse de l'année concernée pour télécharger l'attestation provisoire.",
+    "service": "relecture_documentaire"
+  },
+  {
+    "id": "attestation_visible_non_telechargee",
+    "label_public": "Attestation non récupérée",
+    "label_expert": "Attestation visible mais non téléchargée",
+    "family": "attestation",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "attestation"
+      ],
+      "attestation": [
+        "visible_not_downloaded"
+      ]
+    },
+    "weights": {
+      "need": 5,
+      "attestation": 7
+    },
+    "exclusions": [],
+    "screen": "Écran attestation",
+    "cause": "Le document semble disponible mais pas encore récupéré ou archivé. Jusqu'au 1er juillet 2026, toutes les attestations affichées sont des attestations provisoires — c'est normal et attendu par l'ADEME.",
+    "action": "Télécharger l'attestation provisoire depuis l'écran CONSOMMATIONS > synthèse de l'année. L'attestation définitive (à l'échéance) sera générée le 1er juillet 2026 pour les années 2020 à 2024.",
+    "service": "relecture_documentaire"
+  },
+  {
+    "id": "attestation_unknown_status",
+    "label_public": "Statut d’attestation à clarifier",
+    "label_expert": "Attestation non localisée avec statut documentaire incertain",
+    "family": "attestation",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "attestation",
+        "blocage"
+      ],
+      "attestation": [
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "attestation": 5,
+      "declstate": 2
+    },
+    "exclusions": [],
+    "screen": "Écran attestation",
+    "cause": "Le dossier ne permet pas encore de savoir si l'attestation est absente ou simplement non retrouvée. Note : jusqu'au 1er juillet 2026, seules des attestations provisoires sont disponibles — elles sont accessibles uniquement pour les déclarations validées.",
+    "action": "Aller dans CONSOMMATIONS > Recherche de déclaration, sélectionner l'année et vérifier le statut. L'attestation n'est accessible que si la déclaration est marquée 'Validée'.",
+    "service": "relecture_documentaire"
+  },
+  {
+    "id": "attestation_absente_docs_fragiles",
+    "label_public": "Attestation difficile à produire",
+    "label_expert": "Attestation absente sur base documentaire fragile",
+    "family": "attestation",
+    "priority": "high",
+    "conditions": {
+      "need": [
+        "attestation",
+        "blocage"
+      ],
+      "attestation": [
+        "none",
+        "unknown"
+      ],
+      "docs": [
+        "weak",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "attestation": 5,
+      "docs": 5
+    },
+    "exclusions": [],
+    "screen": "Écran attestation puis déclaration",
+    "cause": "Le manque de données ou de stabilisation documentaire fragilise aussi la restitution de l’attestation.",
+    "action": "Sécuriser le socle documentaire avant de conclure à une anomalie d’attestation.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "attestation_downloaded_ready_archive",
+    "label_public": "Attestation récupérée",
+    "label_expert": "Attestation disponible et dossier en sortie documentaire",
+    "family": "attestation",
+    "priority": "low",
+    "conditions": {
+      "need": [
+        "attestation"
+      ],
+      "attestation": [
+        "downloaded"
+      ],
+      "declstate": [
+        "validated"
+      ]
+    },
+    "weights": {
+      "need": 3,
+      "attestation": 5,
+      "declstate": 3
+    },
+    "exclusions": [],
+    "screen": "Écran attestation",
+    "cause": "L’attestation semble bien disponible et le sujet relève plutôt de son bon archivage ou de la suite.",
+    "action": "Archiver le document puis passer à la lecture stratégique du dossier.",
+    "service": "plan_actions"
+  },
+  {
+    "id": "attestation_absente_perimetre_issue",
+    "label_public": "Attestation absente sur périmètre incertain",
+    "label_expert": "Attestation absente avec soupçon d’incohérence de périmètre",
+    "family": "attestation",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "attestation",
+        "blocage"
+      ],
+      "attestation": [
+        "none",
+        "unknown"
+      ],
+      "complexity": [
+        "multi",
+        "mixte",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "attestation": 4,
+      "complexity": 4
+    },
+    "exclusions": [],
+    "screen": "Écran attestation puis EFA",
+    "cause": "L’absence d’attestation peut être liée à un périmètre encore mal stabilisé.",
+    "action": "Relire d’abord le périmètre et la structure EFA avant de conclure au défaut d’attestation.",
+    "service": "revue_perimetre"
+  },
+  {
+    "id": "attestation_visible_but_wrong_priority",
+    "label_public": "Attestation visible mais sujet secondaire",
+    "label_expert": "Attestation présente alors que le vrai sujet est ailleurs",
+    "family": "attestation",
+    "priority": "low",
+    "conditions": {
+      "attestation": [
+        "visible_not_downloaded",
+        "downloaded"
+      ],
+      "need": [
+        "blocage",
+        "declaration",
+        "objectifs"
+      ]
+    },
+    "weights": {
+      "attestation": 3,
+      "need": 2,
+      "declstate": 2
+    },
+    "exclusions": [],
+    "screen": "Écran attestation",
+    "cause": "Le sujet d’attestation paraît secondaire par rapport à un problème plus amont.",
+    "action": "Traiter le sujet dominant avant de revenir à l’attestation.",
+    "service": "relecture_documentaire"
+  },
+  {
+    "id": "attestation_request_on_unchecked_dossier",
+    "label_public": "Demande d’attestation prématurée",
+    "label_expert": "Recherche d’attestation alors que le dossier reste trop peu lu",
+    "family": "attestation",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "attestation"
+      ],
+      "declstate": [
+        "none",
+        "partial"
+      ],
+      "docs": [
+        "partial",
+        "weak",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "declstate": 5,
+      "docs": 3
+    },
+    "exclusions": [],
+    "screen": "Écran attestation puis déclaration",
+    "cause": "La demande d’attestation arrive alors que le dossier n’est pas encore assez stabilisé.",
+    "action": "Reprendre le déclaratif avant d’attendre une sortie documentaire robuste.",
+    "service": "relecture_documentaire"
+  },
+  {
+    "id": "efa_incoherente_multi",
+    "label_public": "Périmètre EFA potentiellement incohérent",
+    "label_expert": "EFA incohérente en contexte multi-occupation",
+    "family": "efa",
+    "priority": "high",
+    "conditions": {
+      "complexity": [
+        "multi"
+      ],
+      "focus": [
+        "perimetre",
+        "unknown"
+      ],
+      "need": [
+        "blocage",
+        "compte",
+        "declaration"
+      ]
+    },
+    "weights": {
+      "complexity": 6,
+      "focus": 5,
+      "need": 3
+    },
+    "exclusions": [],
+    "screen": "Écran EFA",
+    "cause": "Le blocage semble venir du périmètre, des rattachements ou de la logique d’occupation.",
+    "action": "Revoir l’EFA, les rattachements et la cohérence d’occupation avant toute autre lecture.",
+    "service": "revue_perimetre"
+  },
+  {
+    "id": "efa_incoherente_mixte",
+    "label_public": "Périmètre complexe à relire",
+    "label_expert": "EFA complexe sur site mixte",
+    "family": "efa",
+    "priority": "high",
+    "conditions": {
+      "complexity": [
+        "mixte"
+      ],
+      "focus": [
+        "perimetre",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "complexity": 7,
+      "focus": 5,
+      "need": 2
+    },
+    "exclusions": [],
+    "screen": "Écran EFA",
+    "cause": "Le site mixte semble nécessiter une lecture plus fine du périmètre et des usages.",
+    "action": "Faire une revue détaillée du périmètre avant de traiter les effets secondaires dans OPERAT.",
+    "service": "revue_perimetre"
+  },
+  {
+    "id": "efa_incoherente_unknown_complexity",
+    "label_public": "Périmètre encore mal qualifié",
+    "label_expert": "Complexité de site non clarifiée avec soupçon d’EFA incohérente",
+    "family": "efa",
+    "priority": "medium",
+    "conditions": {
+      "complexity": [
+        "unknown"
+      ],
+      "focus": [
+        "perimetre",
+        "unknown"
+      ],
+      "need": [
+        "blocage",
+        "compte"
+      ]
+    },
+    "weights": {
+      "complexity": 5,
+      "focus": 5,
+      "need": 3
+    },
+    "exclusions": [],
+    "screen": "Écran EFA",
+    "cause": "La nature même du site reste floue, ce qui fragilise la lecture du périmètre.",
+    "action": "Clarifier d’abord la structure du site et des occupations avant d’aller plus loin.",
+    "service": "revue_perimetre"
+  },
+  {
+    "id": "perimetre_surface_doubt",
+    "label_public": "Surface ou périmètre à confirmer",
+    "label_expert": "Doute sur la surface tertiaire réellement concernée",
+    "family": "efa",
+    "priority": "medium",
+    "conditions": {
+      "focus": [
+        "perimetre"
+      ],
+      "need": [
+        "blocage",
+        "compte",
+        "declaration"
+      ]
+    },
+    "weights": {
+      "focus": 6,
+      "need": 3,
+      "docs": 2
+    },
+    "exclusions": [],
+    "screen": "Écran EFA",
+    "cause": "Le doute semble porter d’abord sur la surface ou le périmètre tertiaire pris en compte.",
+    "action": "Revoir les surfaces et le périmètre avant toute lecture plus détaillée.",
+    "service": "cadrage_assujettissement"
+  },
+  {
+    "id": "perimetre_usage_split_issue",
+    "label_public": "Découpage d’usage à revoir",
+    "label_expert": "Répartition des usages ou des zones probablement incohérente",
+    "family": "efa",
+    "priority": "medium",
+    "conditions": {
+      "focus": [
+        "perimetre",
+        "reference"
+      ],
+      "complexity": [
+        "multi",
+        "mixte"
+      ]
+    },
+    "weights": {
+      "focus": 5,
+      "complexity": 5,
+      "need": 2
+    },
+    "exclusions": [],
+    "screen": "Écran EFA et déclaration",
+    "cause": "La logique de découpage entre usages ou zones semble nécessiter une revue.",
+    "action": "Vérifier la cohérence entre découpage des usages et structure déclarative.",
+    "service": "revue_perimetre"
+  },
+  {
+    "id": "rattachement_probable_issue",
+    "label_public": "Rattachements à contrôler",
+    "label_expert": "Rattachements ou liens entre entités probablement incohérents",
+    "family": "efa",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "compte",
+        "blocage"
+      ],
+      "complexity": [
+        "multi",
+        "mixte",
+        "unknown"
+      ],
+      "focus": [
+        "perimetre",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 3,
+      "complexity": 4,
+      "focus": 4
+    },
+    "exclusions": [],
+    "screen": "Structure du compte et EFA",
+    "cause": "Les rattachements semblent être une source probable d’erreur ou d’incompréhension.",
+    "action": "Contrôler la structure des rattachements avant toute correction plus profonde.",
+    "service": "revue_perimetre"
+  },
+  {
+    "id": "compte_vs_site_confusion",
+    "label_public": "Confusion entre compte et site",
+    "label_expert": "Blocage lié à la distinction compte / structure / site / EFA",
+    "family": "efa",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "compte"
+      ],
+      "focus": [
+        "perimetre",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 6,
+      "focus": 4
+    },
+    "exclusions": [],
+    "screen": "Structure du compte",
+    "cause": "Le blocage semble plus structurel que déclaratif, avec une confusion entre compte et périmètre de site.",
+    "action": "Repartir de la structure du compte avant de traiter les couches réglementaires.",
+    "service": "relecture_operat"
+  },
+  {
+    "id": "assujettissement_a_confirmer",
+    "label_public": "Assujettissement à confirmer",
+    "label_expert": "Seuil ou périmètre tertiaire à confirmer",
+    "family": "assujettissement",
+    "priority": "medium",
+    "conditions": {
+      "focus": [
+        "perimetre"
+      ],
+      "complexity": [
+        "unknown",
+        "mixte"
+      ],
+      "need": [
+        "blocage",
+        "compte"
+      ]
+    },
+    "weights": {
+      "focus": 6,
+      "complexity": 3,
+      "need": 2
+    },
+    "exclusions": [],
+    "screen": "Structure du compte et périmètre",
+    "cause": "Le sujet semble plus amont : qualification du périmètre et du seuil réellement concerné.",
+    "action": "Confirmer le périmètre tertiaire et la logique d’assujettissement avant toute lecture réglementaire.",
+    "service": "cadrage_assujettissement"
+  },
+  {
+    "id": "mono_site_but_perimetre_doubt",
+    "label_public": "Périmètre simple mais encore incertain",
+    "label_expert": "Doute de périmètre malgré mono-occupation",
+    "family": "assujettissement",
+    "priority": "low",
+    "conditions": {
+      "complexity": [
+        "mono"
+      ],
+      "focus": [
+        "perimetre"
+      ],
+      "need": [
+        "blocage",
+        "declaration"
+      ]
+    },
+    "weights": {
+      "complexity": 1,
+      "focus": 6,
+      "need": 2
+    },
+    "exclusions": [],
+    "screen": "Écran EFA",
+    "cause": "Même sur un site simple, le périmètre pris en compte semble devoir être revérifié.",
+    "action": "Valider le périmètre avant d’ouvrir des hypothèses plus complexes.",
+    "service": "cadrage_assujettissement"
+  },
+  {
+    "id": "perimetre_ready_but_governance_unclear",
+    "label_public": "Périmètre correct mais gouvernance floue",
+    "label_expert": "Gouvernance de dossier incertaine sur périmètre pourtant plausible",
+    "family": "assujettissement",
+    "priority": "low",
+    "conditions": {
+      "focus": [
+        "perimetre"
+      ],
+      "complexity": [
+        "multi",
+        "mixte",
+        "unknown"
+      ],
+      "need": [
+        "compte"
+      ]
+    },
+    "weights": {
+      "focus": 4,
+      "complexity": 3,
+      "need": 4
+    },
+    "exclusions": [],
+    "screen": "Structure du compte et gouvernance",
+    "cause": "Le périmètre n’est peut-être pas le vrai problème ; la gouvernance du dossier semble floue.",
+    "action": "Clarifier les responsabilités avant d’engager une correction technique.",
+    "service": "relecture_operat"
+  },
+  {
+    "id": "reference_usage_fragiles",
+    "label_public": "Référence ou usages à consolider",
+    "label_expert": "Référence / usages fragiles",
+    "family": "reference",
+    "priority": "high",
+    "conditions": {
+      "focus": [
+        "reference"
+      ],
+      "docs": [
+        "partial",
+        "weak",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "focus": 7,
+      "docs": 4,
+      "need": 2
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration et référence",
+    "cause": "La base de référence ou les usages semblent insuffisamment sécurisés.",
+    "action": "Relire l’année de référence, les usages et leur cohérence avant toute interprétation.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "reference_choice_unclear",
+    "label_public": "Choix de référence à clarifier",
+    "label_expert": "Année de référence non encore stabilisée",
+    "family": "reference",
+    "priority": "high",
+    "conditions": {
+      "focus": [
+        "reference"
+      ],
+      "need": [
+        "objectifs",
+        "declaration",
+        "blocage"
+      ]
+    },
+    "weights": {
+      "focus": 7,
+      "need": 3,
+      "docs": 2
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration et référence",
+    "cause": "Le choix de l'année de référence semble encore incertain ou mal sécurisé. OPERAT détermine automatiquement l'année la plus favorable parmi les déclarations disponibles (2010-2019, 2020, 2021, 2022).",
+    "action": "Vérifier qu'au moins une année de pleine exploitation est déclarée. La période 2010-2019 peut être déclarée jusqu'au 30/09/2027 — ce n'est pas une urgence immédiate. Reprendre la logique de référence avant d'aller plus loin dans la trajectoire.",
+    "service": "cadrage_tertiaire"
+  },
+  {
+    "id": "usage_incoherent_with_targets",
+    "label_public": "Usages à relire avant lecture des objectifs",
+    "label_expert": "Usages déclarés potentiellement incohérents avec la restitution des objectifs",
+    "family": "reference",
+    "priority": "medium",
+    "conditions": {
+      "focus": [
+        "reference"
+      ],
+      "objvisible": [
+        "oui",
+        "non"
+      ],
+      "need": [
+        "objectifs",
+        "blocage"
+      ]
+    },
+    "weights": {
+      "focus": 6,
+      "objvisible": 2,
+      "need": 4
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration et objectifs",
+    "cause": "La logique d’usage déclarée peut expliquer une lecture inattendue des objectifs.",
+    "action": "Relire les usages avant de conclure sur un problème de restitution.",
+    "service": "cadrage_tertiaire"
+  },
+  {
+    "id": "reference_ok_but_docs_partial",
+    "label_public": "Référence plausible mais encore à consolider",
+    "label_expert": "Référence identifiée mais documentation encore partielle",
+    "family": "reference",
+    "priority": "medium",
+    "conditions": {
+      "focus": [
+        "reference"
+      ],
+      "docs": [
+        "partial"
+      ]
+    },
+    "weights": {
+      "focus": 6,
+      "docs": 4,
+      "need": 2
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration et référence",
+    "cause": "La logique de référence paraît plausible, mais les justificatifs ou données restent partiels.",
+    "action": "Consolider les pièces et données avant validation définitive de la référence.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "reference_ready_for_target_reading",
+    "label_public": "Référence exploitable",
+    "label_expert": "Référence suffisamment stabilisée pour lecture stratégique",
+    "family": "reference",
+    "priority": "low",
+    "conditions": {
+      "focus": [
+        "reference"
+      ],
+      "docs": [
+        "robust"
+      ],
+      "declstate": [
+        "validated"
+      ]
+    },
+    "weights": {
+      "focus": 5,
+      "docs": 4,
+      "declstate": 3
+    },
+    "exclusions": [],
+    "screen": "Écran objectifs",
+    "cause": "La référence semble suffisamment solide pour passer à la lecture des objectifs et de la trajectoire.",
+    "action": "Basculer vers une lecture stratégique du dossier.",
+    "service": "plan_actions"
+  },
+  {
+    "id": "usage_change_needs_review",
+    "label_public": "Évolution d’usage à prendre en compte",
+    "label_expert": "Usage ou contexte d’exploitation nécessitant une relecture de référence",
+    "family": "reference",
+    "priority": "medium",
+    "conditions": {
+      "focus": [
+        "reference"
+      ],
+      "priority_need": [
+        "understand",
+        "targets"
+      ]
+    },
+    "weights": {
+      "focus": 5,
+      "priority_need": 3,
+      "need": 2
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration et référence",
+    "cause": "La compréhension du dossier semble bloquée par une lecture insuffisante des usages ou de leur évolution.",
+    "action": "Recontextualiser les usages avant de trancher sur le reste du dossier.",
+    "service": "cadrage_tertiaire"
+  },
+  {
+    "id": "donnees_insuffisantes",
+    "label_public": "Base documentaire insuffisante",
+    "label_expert": "Socle documentaire trop faible",
+    "family": "data",
+    "priority": "high",
+    "conditions": {
+      "docs": [
+        "weak",
+        "unknown"
+      ],
+      "focus": [
+        "conso",
+        "unknown",
+        "reference"
+      ],
+      "need": [
+        "declaration",
+        "blocage",
+        "compte",
+        "objectifs"
+      ]
+    },
+    "weights": {
+      "docs": 7,
+      "focus": 3,
+      "need": 2
+    },
+    "exclusions": [],
+    "screen": "Données d'entrée / déclaration",
+    "cause": "Le dossier semble surtout fragilisé par un manque de données fiables.",
+    "action": "Compléter surfaces, consommations, référence et pièces structurantes avant d’aller plus loin.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "conso_gap_major",
+    "label_public": "Données de consommation à consolider",
+    "label_expert": "Consommations insuffisamment consolidées",
+    "family": "data",
+    "priority": "high",
+    "conditions": {
+      "focus": [
+        "conso"
+      ],
+      "docs": [
+        "partial",
+        "weak",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "focus": 7,
+      "docs": 5,
+      "need": 2
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration",
+    "cause": "Le doute principal semble porter sur la qualité ou l’exhaustivité des consommations.",
+    "action": "Consolider les consommations avant toute tentative d’interprétation réglementaire.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "docs_partial_but_recoverable",
+    "label_public": "Base documentaire partielle mais récupérable",
+    "label_expert": "Données manquantes mais dossier récupérable sans refonte complète",
+    "family": "data",
+    "priority": "medium",
+    "conditions": {
+      "docs": [
+        "partial"
+      ],
+      "need": [
+        "declaration",
+        "objectifs",
+        "attestation",
+        "blocage"
+      ]
+    },
+    "weights": {
+      "docs": 5,
+      "need": 3,
+      "focus": 2
+    },
+    "exclusions": [],
+    "screen": "Données d'entrée / déclaration",
+    "cause": "Le socle documentaire est incomplet mais semble pouvoir être consolidé sans refonte totale.",
+    "action": "Récupérer les données manquantes avant de poursuivre le traitement.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "data_quality_conflict",
+    "label_public": "Données présentes mais encore contradictoires",
+    "label_expert": "Socle documentaire présent mais incohérent ou conflictuel",
+    "family": "data",
+    "priority": "medium",
+    "conditions": {
+      "docs": [
+        "robust",
+        "partial"
+      ],
+      "focus": [
+        "conso",
+        "reference",
+        "unknown"
+      ],
+      "need": [
+        "blocage",
+        "declaration"
+      ]
+    },
+    "weights": {
+      "docs": 3,
+      "focus": 4,
+      "need": 3
+    },
+    "exclusions": [],
+    "screen": "Données d'entrée / déclaration",
+    "cause": "Les données existent mais leur cohérence globale semble encore discutable.",
+    "action": "Faire une revue de cohérence avant d’interpréter le résultat produit par OPERAT.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "pilotage_ready",
+    "label_public": "Passage possible en logique de pilotage",
+    "label_expert": "Dossier globalement exploitable",
+    "family": "pilotage",
+    "priority": "medium",
+    "conditions": {
+      "declstate": [
+        "validated"
+      ],
+      "objvisible": [
+        "oui"
+      ],
+      "attestation": [
+        "downloaded",
+        "visible_not_downloaded"
+      ],
+      "docs": [
+        "robust"
+      ],
+      "priority_need": [
+        "next"
+      ]
+    },
+    "weights": {
+      "declstate": 5,
+      "objvisible": 4,
+      "attestation": 2,
+      "docs": 5,
+      "priority_need": 4
+    },
+    "exclusions": [
+      "decl_incomplete_validation",
+      "donnees_insuffisantes",
+      "efa_incoherente_multi"
+    ],
+    "screen": "Écran objectifs puis pilotage interne",
+    "cause": "Le dossier ne présente pas de blocage majeur apparent et peut passer en logique de pilotage.",
+    "action": "Transformer la lecture OPERAT en plan d’actions et trajectoire opérationnelle.",
+    "service": "plan_actions"
+  },
+  {
+    "id": "validated_but_needs_action_plan",
+    "label_public": "Dossier prêt pour un plan d’actions",
+    "label_expert": "Dossier validé avec passage naturel vers la feuille de route",
+    "family": "pilotage",
+    "priority": "low",
+    "conditions": {
+      "declstate": [
+        "validated"
+      ],
+      "docs": [
+        "robust"
+      ],
+      "priority_need": [
+        "next",
+        "targets"
+      ]
+    },
+    "weights": {
+      "declstate": 4,
+      "docs": 5,
+      "priority_need": 4,
+      "objvisible": 2
+    },
+    "exclusions": [],
+    "screen": "Écran objectifs",
+    "cause": "Le sujet semble avoir quitté le stade du blocage pour entrer dans celui de la priorisation.",
+    "action": "Structurer maintenant une feuille de route opérationnelle.",
+    "service": "plan_actions"
+  },
+  {
+    "id": "mixed_validation_and_perimeter",
+    "label_public": "Blocage mixte déclaration / périmètre",
+    "label_expert": "Cas frontière entre validation incomplète et périmètre incohérent",
+    "family": "hybride",
+    "priority": "high",
+    "conditions": {
+      "declstate": [
+        "partial",
+        "done_not_validated"
+      ],
+      "focus": [
+        "perimetre",
+        "unknown"
+      ],
+      "complexity": [
+        "multi",
+        "mixte",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "declstate": 5,
+      "focus": 4,
+      "complexity": 4
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration puis EFA",
+    "cause": "Le blocage semble combiner une fragilité déclarative et une instabilité de périmètre.",
+    "action": "Traiter d’abord le périmètre puis reprendre la validation du déclaratif.",
+    "service": "revue_perimetre"
+  },
+  {
+    "id": "mixed_reference_and_data",
+    "label_public": "Blocage mixte référence / données",
+    "label_expert": "Cas frontière entre référence fragile et socle documentaire faible",
+    "family": "hybride",
+    "priority": "high",
+    "conditions": {
+      "focus": [
+        "reference",
+        "conso"
+      ],
+      "docs": [
+        "partial",
+        "weak",
+        "unknown"
+      ],
+      "need": [
+        "objectifs",
+        "declaration",
+        "blocage"
+      ]
+    },
+    "weights": {
+      "focus": 5,
+      "docs": 5,
+      "need": 3
+    },
+    "exclusions": [],
+    "screen": "Écran déclaration et référence",
+    "cause": "Le dossier semble bloqué à la fois par la logique de référence et par la qualité des données d’entrée.",
+    "action": "Reconstituer le socle documentaire puis requalifier la référence.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "secure_need_with_weak_docs",
+    "label_public": "Sécurisation nécessaire avant validation",
+    "label_expert": "Volonté de sécuriser un dossier encore trop peu robuste",
+    "family": "hybride",
+    "priority": "high",
+    "conditions": {
+      "priority_need": [
+        "secure"
+      ],
+      "docs": [
+        "weak",
+        "unknown"
+      ],
+      "declstate": [
+        "none",
+        "partial",
+        "done_not_validated"
+      ]
+    },
+    "weights": {
+      "priority_need": 4,
+      "docs": 6,
+      "declstate": 4
+    },
+    "exclusions": [],
+    "screen": "Données d'entrée puis déclaration",
+    "cause": "L’utilisateur cherche à sécuriser un dossier qui manque encore de socle documentaire.",
+    "action": "Consolider les données avant toute logique de validation.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "next_need_but_decl_not_ready",
+    "label_public": "Suite prématurée",
+    "label_expert": "Volonté de passer à l'action alors que le dossier n'est pas encore stabilisé",
+    "family": "hybride",
+    "priority": "high",
+    "conditions": {
+      "priority_need": [
+        "next"
+      ],
+      "declstate": [
+        "none",
+        "partial",
+        "done_not_validated"
+      ]
+    },
+    "weights": {
+      "priority_need": 4,
+      "declstate": 6,
+      "docs": 2
+    },
+    "exclusions": [
+      "pilotage_ready"
+    ],
+    "screen": "Écran déclaration",
+    "cause": "Le besoin de passer à la suite est légitime, mais le dossier n’est pas encore assez stabilisé.",
+    "action": "Fiabiliser d’abord le dossier avant d’ouvrir un plan d’actions.",
+    "service": "relecture_operat"
+  },
+  {
+    "id": "attestation_type_confusion",
+    "label_public": "Attestation affichée comme provisoire",
+    "label_expert": "Confusion sur le type d'attestation (provisoire / définitive)",
+    "family": "attestation",
+    "priority": "medium",
+    "conditions": {
+      "need": [
+        "attestation",
+        "blocage"
+      ],
+      "attestation": [
+        "visible_not_downloaded",
+        "unknown"
+      ],
+      "declstate": [
+        "validated"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "attestation": 5,
+      "declstate": 4,
+      "priority_need": 2
+    },
+    "exclusions": [
+      "attestation_absente_non_valide"
+    ],
+    "screen": "Écran attestation",
+    "cause": "L'attestation affichée est marquée 'provisoire' — c'est normal jusqu'au 1er juillet 2026. L'ADEME a défini une période transitoire durant laquelle toutes les attestations sont provisoires, quelle que soit la qualité de la déclaration. L'attestation définitive (à l'échéance) sera générée le 1er juillet 2026 pour les années 2020 à 2024.",
+    "action": "Télécharger l'attestation provisoire disponible — elle est valable et utilisable dès maintenant (transactions immobilières, audits). Ne pas attendre une version 'définitive' pour la déclarer disponible.",
+    "service": "relecture_documentaire"
+  },
+  {
+    "id": "objectifs_absents_no_full_year",
+    "label_public": "Objectifs non calculables : aucune année pleine déclarée",
+    "label_expert": "Absence d'année de pleine exploitation déclarée — objectifs n.c.",
+    "family": "objectifs",
+    "priority": "high",
+    "conditions": {
+      "need": [
+        "objectifs",
+        "blocage"
+      ],
+      "objvisible": [
+        "non",
+        "inconnu"
+      ],
+      "declstate": [
+        "none",
+        "partial",
+        "done_not_validated"
+      ],
+      "docs": [
+        "weak",
+        "unknown"
+      ]
+    },
+    "weights": {
+      "need": 4,
+      "objvisible": 5,
+      "declstate": 4,
+      "docs": 4
+    },
+    "exclusions": [
+      "objectifs_visibles_but_non_fiables",
+      "objectifs_visibles_ready_for_analysis"
+    ],
+    "screen": "Écran objectifs (valeurs n.c.)",
+    "cause": "Les objectifs affichent 'n.c.' (non calculé) car OPERAT ne peut pas déterminer l'année de référence. La cause la plus fréquente : aucune année de pleine exploitation n'est encore déclarée sur OPERAT. Sans cette base, ni le Cabs ni le Crelat ne peuvent être calculés.",
+    "action": "Vérifier dans CONSOMMATIONS qu'au moins une année de pleine exploitation est déclarée et validée. Si seule la période 2010-2019 existe, elle peut être déclarée jusqu'au 30/09/2027. Une fois une année validée, patienter 10 minutes — les objectifs sont calculés automatiquement.",
+    "service": "audit_donnees"
+  },
+  {
+    "id": "reference_heritage_efa_liee",
+    "label_public": "Référence héritée d'un occupant précédent",
+    "label_expert": "EFA liée — héritage de consommation de référence (changement d'occupant)",
+    "family": "reference",
+    "priority": "high",
+    "conditions": {
+      "need": [
+        "objectifs",
+        "declaration",
+        "blocage"
+      ],
+      "focus": [
+        "reference",
+        "unknown"
+      ],
+      "complexity": [
+        "multi",
+        "mixte"
+      ]
+    },
+    "weights": {
+      "need": 3,
+      "focus": 5,
+      "complexity": 5,
+      "declstate": 2
+    },
+    "exclusions": [
+      "pilotage_ready",
+      "reference_ready_for_target_reading"
+    ],
+    "screen": "Écran déclaration et référence — EFA liée",
+    "cause": "En cas de changement d'occupant, l'objectif Crelat 2030 n'est pas calculé à partir de votre propre consommation de référence : il hérite de la référence du primo assujetti (occupant précédent), via une moyenne pondérée des surfaces liées. Cette logique peut créer un objectif inattendu difficile à comprendre sans connaître l'historique du site.",
+    "action": "Identifier les EFA liées déclarées sur OPERAT et leurs années de référence respectives. Vérifier que les rattachements sont corrects et que les années de pleine exploitation des EFA liées sont antérieures à la vôtre. Contacter EcoVerta pour une analyse de la structure EFA et de l'héritage de référence.",
+    "service": "cadrage_tertiaire"
+  },
+  {
+    "id": "objectifs_absents_delai_10min",
+    "label_public": "Objectifs non encore affichés après validation récente",
+    "label_expert": "Objectifs absents — délai technique de 10 min post-validation",
+    "family": "objectifs",
+    "priority": "low",
+    "conditions": {
+      "need": [
+        "objectifs",
+        "blocage"
+      ],
+      "objvisible": [
+        "non",
+        "inconnu"
+      ],
+      "declstate": [
+        "validated"
+      ]
+    },
+    "weights": {
+      "need": 3,
+      "objvisible": 5,
+      "declstate": 6,
+      "priority_need": 1
+    },
+    "exclusions": [
+      "objectifs_visibles_but_non_fiables",
+      "objectifs_visibles_ready_for_analysis",
+      "objectifs_non_checked_but_decl_ok"
+    ],
+    "screen": "Écran objectifs",
+    "cause": "La déclaration est validée mais les objectifs ne sont pas encore visibles. C'est probablement un délai technique normal : OPERAT calcule et restitue les objectifs 10 minutes après la validation d'une déclaration.",
+    "action": "Patienter 10 minutes après la validation puis recharger l'écran OBJECTIFS ou la recherche EFA avancée (menu EFA). Si les objectifs restent absents après ce délai, vérifier qu'une année de pleine exploitation est bien déclarée.",
+    "service": "cadrage_tertiaire"
+  }
+]
